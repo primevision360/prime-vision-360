@@ -31,7 +31,21 @@
             align-items: center;
         }
         .logo {
-            height: 50px;
+          height: 80px;              /* Ideal default size */
+          width: auto;               /* Maintain aspect ratio */
+          transition: all 0.3s;      /* Smooth hover effects */
+            }
+
+        /* Optional: Add hover effect */
+        .logo:hover {
+          transform: scale(1.05);    /* Slight zoom on hover */
+            }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+          .logo {
+            height: 60px;            /* Slightly smaller on phones */
+          }
         }
         .language-switcher {
             color: white;
