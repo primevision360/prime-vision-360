@@ -5,6 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prime Vision 360 | جولة افتراضية</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
             --primary: #0066ff;
@@ -31,21 +32,8 @@
             align-items: center;
         }
         .logo {
-          height: 180px;              /* Ideal default size */
-          width: auto;               /* Maintain aspect ratio */
-          transition: all 0.3s;      /* Smooth hover effects */
-            }
-
-        /* Optional: Add hover effect */
-        .logo:hover {
-          transform: scale(1.05);    /* Slight zoom on hover */
-            }
-
-        /* Mobile responsiveness */
-        @media (max-width: 768px) {
-          .logo {
-            height: 60px;            /* Slightly smaller on phones */
-          }
+            height: 80px;
+            width: auto;
         }
         .language-switcher {
             color: white;
@@ -66,6 +54,11 @@
         [lang="ar"] .hero {
             padding: 5rem 2rem;
         }
+        .slogan {
+            font-size: 1.2rem;
+            margin: 15px 0 25px;
+            opacity: 0.9;
+        }
         .cta-button {
             background: var(--primary);
             color: white;
@@ -75,7 +68,11 @@
             font-weight: bold;
             display: inline-block;
             margin-top: 1rem;
-            transition: transform 0.3s;
+            transition: all 0.3s;
+        }
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
         .features {
             display: flex;
@@ -94,6 +91,12 @@
             padding: 2rem;
             border-radius: 8px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .feature-card i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
         }
         footer {
             background: var(--dark);
@@ -101,14 +104,34 @@
             text-align: center;
             padding: 2rem;
         }
+        form {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-family: inherit;
+        }
         .hidden {
             display: none;
+        }
+        @media (max-width: 768px) {
+            .logo {
+                height: 60px;
+            }
+            .feature-card {
+                min-width: 100%;
+            }
         }
     </style>
 </head>
 <body>
     <header>
-        <img src="your-logo.png" alt="Prime Vision 360" class="logo">
+        <img src="prime-vision-logo.png" alt="Prime Vision 360" class="logo">
         <button class="language-switcher" onclick="toggleLanguage()">العربية</button>
     </header>
 
@@ -116,32 +139,61 @@
     <div id="en-content">
         <section class="hero">
             <h1>Immersive 360° Virtual Experiences</h1>
-            <p>High-resolution virtual tours for real estate, venues, and businesses</p>
-            <a href="#contact" class="cta-button">Get Your Free Quote</a>
+            <p class="slogan">See Every Angle, Feel Every Space</p>
+            <a href="#contact" class="cta-button">Get Your Free Demo →</a>
         </section>
 
         <section class="features">
             <div class="feature-card">
-                <h3>Real Estate Tours</h3>
-                <p>Showcase properties with interactive 360° walkthroughs that attract more buyers.</p>
+                <i class="fas fa-home"></i>
+                <h3>Real Estate</h3>
+                <p>Interactive 360° property walkthroughs that attract more buyers and reduce site visits.</p>
             </div>
             <div class="feature-card">
-                <h3>Event Venues</h3>
-                <p>Let clients explore your space virtually before booking.</p>
+                <i class="fas fa-hotel"></i>
+                <h3>Hotels & Resorts</h3>
+                <p>Let guests explore rooms and amenities before booking. Boost direct reservations by 30%.</p>
             </div>
             <div class="feature-card">
-                <h3>Business Virtual Tours</h3>
-                <p>Give customers an inside look at your facilities.</p>
+                <i class="fas fa-school"></i>
+                <h3>Schools & Universities</h3>
+                <p>Virtual campus tours for admissions and open days. Engage students and parents.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-utensils"></i>
+                <h3>Restaurants</h3>
+                <p>Showcase your ambiance and hygiene standards. Increase bookings and trust.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-spa"></i>
+                <h3>Salons & Spas</h3>
+                <p>Highlight your luxury space and services. Reduce no-shows with virtual previews.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-store"></i>
+                <h3>Retail Stores</h3>
+                <p>Virtual store layouts that drive foot traffic and online sales. Perfect for promotions.</p>
             </div>
         </section>
 
         <section id="contact" style="padding: 3rem 5%; text-align: center;">
-            <h2>Ready to Digitize Your Space?</h2>
-            <form style="max-width: 500px; margin: 0 auto;">
+            <h2>Ready to Transform Your Space?</h2>
+            <p>Get a free consultation and sample tour within 48 hours.</p>
+            <form>
                 <input type="text" placeholder="Your Name" required>
                 <input type="email" placeholder="Email" required>
+                <select required>
+                    <option value="">I need a tour for...</option>
+                    <option>Real Estate</option>
+                    <option>Hotel/Resort</option>
+                    <option>School/University</option>
+                    <option>Restaurant/Café</option>
+                    <option>Salon/Spa</option>
+                    <option>Retail Store</option>
+                    <option>Other</option>
+                </select>
                 <textarea placeholder="Tell us about your project" rows="4" required></textarea>
-                <button type="submit" class="cta-button">Send Message</button>
+                <button type="submit" class="cta-button">Send Request</button>
             </form>
         </section>
     </div>
@@ -149,33 +201,62 @@
     <!-- Arabic Content -->
     <div id="ar-content" class="hidden" lang="ar">
         <section class="hero">
-            <h1>جولات افتراضية بزاوية 360°</h1>
-            <p>جولات افتراضية عالية الدقة للعقارات والفعاليات والشركات</p>
-            <a href="#contact" class="cta-button">احصل على عرض سعر مجاني</a>
+            <h1>جولات افتراضية غامرة بزاوية 360°</h1>
+            <p class="slogan">شاهد كل زاوية.. اختبر كل مساحة</p>
+            <a href="#contact" class="cta-button">احصل على عرض مجاني →</a>
         </section>
 
         <section class="features">
             <div class="feature-card">
-                <h3>جولات عقارية</h3>
-                <p>عرض العقارات بجولات تفاعلية بزاوية 360° لجذب المزيد من المشترين</p>
+                <i class="fas fa-home"></i>
+                <h3>العقارات</h3>
+                <p>جولات تفاعلية بزاوية 360° تجذب المزيد من المشترين وتقلل الزيارات الميدانية.</p>
             </div>
             <div class="feature-card">
-                <h3>قاعات الفعاليات</h3>
-                <p>اسمح للعملاء باستكشاف المكان افتراضيًا قبل الحجز</p>
+                <i class="fas fa-hotel"></i>
+                <h3>الفنادق والمنتجعات</h3>
+                <p>اسمح للنزلاء باستكشاف الغرف والمرافق قبل الحجز. زد الحجوزات المباشرة 30٪.</p>
             </div>
             <div class="feature-card">
-                <h3>جولات افتراضية للشركات</h3>
-                <p>امنح العملاء نظرة داخلية على مرافقك</p>
+                <i class="fas fa-school"></i>
+                <h3>المدارس والجامعات</h3>
+                <p>جولات افتراضية للقبول والأيام المفتوحة. اجذب الطلاب وأولياء الأمور.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-utensils"></i>
+                <h3>المطاعم</h3>
+                <p>اعرض أجواءك ومعايير النظافة. زد الحجوزات وبناء الثقة.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-spa"></i>
+                <h3>صالونات التجميل</h3>
+                <p>أبرز مساحتك الفاخرة وخدماتك. قلل الغياب بالعروض الافتراضية.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-store"></i>
+                <h3>المتاجر</h3>
+                <p>تصميم متاجر افتراضية تزيد الزبائن والمبيعات. مثالي للعروض الترويجية.</p>
             </div>
         </section>
 
         <section id="contact" style="padding: 3rem 5%; text-align: center;">
-            <h2>هل أنت مستعد لرقمنة مساحتك؟</h2>
-            <form style="max-width: 500px; margin: 0 auto;">
+            <h2>هل أنت مستعد لتحويل مساحتك؟</h2>
+            <p>احصل على استشارة مجانية ونموذج جولة خلال 48 ساعة.</p>
+            <form>
                 <input type="text" placeholder="اسمك" required>
                 <input type="email" placeholder="البريد الإلكتروني" required>
+                <select required>
+                    <option value="">أحتاج جولة لـ...</option>
+                    <option>عقار</option>
+                    <option>فندق/منتجع</option>
+                    <option>مدرسة/جامعة</option>
+                    <option>مطعم/مقهى</option>
+                    <option>صالون/سبا</option>
+                    <option>متجر</option>
+                    <option>أخرى</option>
+                </select>
                 <textarea placeholder="أخبرنا عن مشروعك" rows="4" required></textarea>
-                <button type="submit" class="cta-button">إرسال الرسالة</button>
+                <button type="submit" class="cta-button">إرسال الطلب</button>
             </form>
         </section>
     </div>
