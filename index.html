@@ -2,8 +2,9 @@
 <html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prime Vision 360 | ???? ????????</title>
+    <title>Prime Vision 360 | جولة افتراضية</title>
     <style>
         :root {
             --primary: #0066ff;
@@ -49,7 +50,6 @@
             padding: 5rem 1rem;
         }
         [lang="ar"] .hero {
-            text-align: right;
             padding: 5rem 2rem;
         }
         .cta-button {
@@ -95,7 +95,7 @@
 <body>
     <header>
         <img src="your-logo.png" alt="Prime Vision 360" class="logo">
-        <button class="language-switcher" onclick="toggleLanguage()">???????</button>
+        <button class="language-switcher" onclick="toggleLanguage()">العربية</button>
     </header>
 
     <!-- English Content -->
@@ -124,10 +124,10 @@
         <section id="contact" style="padding: 3rem 5%; text-align: center;">
             <h2>Ready to Digitize Your Space?</h2>
             <form style="max-width: 500px; margin: 0 auto;">
-                <input type="text" placeholder="Your Name" style="width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 4px;">
-                <input type="email" placeholder="Email" style="width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 4px;">
-                <textarea placeholder="Tell us about your project" style="width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 4px; height: 100px;"></textarea>
-                <button type="submit" class="cta-button" style="border: none; cursor: pointer;">Send Message</button>
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Email" required>
+                <textarea placeholder="Tell us about your project" rows="4" required></textarea>
+                <button type="submit" class="cta-button">Send Message</button>
             </form>
         </section>
     </div>
@@ -135,33 +135,33 @@
     <!-- Arabic Content -->
     <div id="ar-content" class="hidden" lang="ar">
         <section class="hero">
-            <h1>????? ???????? ?????? 360°</h1>
-            <p>????? ???????? ????? ????? ???????? ?????????? ????????</p>
-            <a href="#contact" class="cta-button">???? ??? ??? ??? ?????</a>
+            <h1>جولات افتراضية بزاوية 360°</h1>
+            <p>جولات افتراضية عالية الدقة للعقارات والفعاليات والشركات</p>
+            <a href="#contact" class="cta-button">احصل على عرض سعر مجاني</a>
         </section>
 
         <section class="features">
             <div class="feature-card">
-                <h3>????? ??????</h3>
-                <p>??? ???????? ?????? ??????? ?????? 360° ???? ?????? ?? ????????</p>
+                <h3>جولات عقارية</h3>
+                <p>عرض العقارات بجولات تفاعلية بزاوية 360° لجذب المزيد من المشترين</p>
             </div>
             <div class="feature-card">
-                <h3>????? ?????????</h3>
-                <p>???? ??????? ???????? ?????? ????????? ??? ?????</p>
+                <h3>قاعات الفعاليات</h3>
+                <p>اسمح للعملاء باستكشاف المكان افتراضيًا قبل الحجز</p>
             </div>
             <div class="feature-card">
-                <h3>????? ???????? ???????</h3>
-                <p>???? ??????? ???? ?????? ??? ??????</p>
+                <h3>جولات افتراضية للشركات</h3>
+                <p>امنح العملاء نظرة داخلية على مرافقك</p>
             </div>
         </section>
 
         <section id="contact" style="padding: 3rem 5%; text-align: center;">
-            <h2>?? ??? ????? ?????? ???????</h2>
+            <h2>هل أنت مستعد لرقمنة مساحتك؟</h2>
             <form style="max-width: 500px; margin: 0 auto;">
-                <input type="text" placeholder="????" style="width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 4px;">
-                <input type="email" placeholder="?????? ??????????" style="width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 4px;">
-                <textarea placeholder="?????? ?? ??????" style="width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 4px; height: 100px;"></textarea>
-                <button type="submit" class="cta-button" style="border: none; cursor: pointer;">????? ???????</button>
+                <input type="text" placeholder="اسمك" required>
+                <input type="email" placeholder="البريد الإلكتروني" required>
+                <textarea placeholder="أخبرنا عن مشروعك" rows="4" required></textarea>
+                <button type="submit" class="cta-button">إرسال الرسالة</button>
             </form>
         </section>
     </div>
@@ -170,7 +170,31 @@
         <p id="footer-text">&copy; 2023 Prime Vision 360. All rights reserved.</p>
     </footer>
 
-<script src="script.js"></script>
-
+    <script>
+        function toggleLanguage() {
+            const enContent = document.getElementById('en-content');
+            const arContent = document.getElementById('ar-content');
+            const button = document.querySelector('.language-switcher');
+            const footerText = document.getElementById('footer-text');
+            
+            if (enContent.classList.contains('hidden')) {
+                // Switch to English
+                enContent.classList.remove('hidden');
+                arContent.classList.add('hidden');
+                button.textContent = 'العربية';
+                document.documentElement.lang = 'en';
+                document.documentElement.dir = 'ltr';
+                footerText.textContent = '© 2023 Prime Vision 360. All rights reserved.';
+            } else {
+                // Switch to Arabic
+                enContent.classList.add('hidden');
+                arContent.classList.remove('hidden');
+                button.textContent = 'English';
+                document.documentElement.lang = 'ar';
+                document.documentElement.dir = 'rtl';
+                footerText.textContent = '© 2023 برايم فيجن 360. جميع الحقوق محفوظة.';
+            }
+        }
+    </script>
 </body>
 </html>
