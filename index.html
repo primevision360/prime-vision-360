@@ -1,174 +1,156 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prime Vision 360 | جولة افتراضية</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Prime Vision 360 | Virtual Tours</title>
     <style>
+        /* Modern, clean styling similar to Zeus 360 */
         :root {
-            --primary: #2a9d8f;
-            --secondary: #3a86ff;
-            --dark: #264653;
+            --primary: #1a3e72;  /* Dark blue */
+            --secondary: #f7931e; /* Orange */
             --light: #f8f9fa;
-            --accent: #e9c46a;
+            --dark: #212529;
         }
+        
         body {
-            font-family: 'Segoe UI', Tahoma, sans-serif;
+            font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
             line-height: 1.6;
+            color: #333;
         }
-        [lang="ar"] body {
-            font-family: Tahoma, 'Segoe UI', sans-serif;
-        }
+        
         header {
-            background: var(--dark);
-            color: white;
-            padding: 1rem 5%;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 15px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            position: fixed;
+            width: 90%;
+            z-index: 100;
         }
+        
         .logo {
-            height: 80px;
-            width: auto;
+            height: 50px;
         }
-        .language-switcher {
-            color: white;
-            background: transparent;
-            border: 1px solid white;
-            padding: 8px 15px;
-            border-radius: 50px;
-            cursor: pointer;
-            font-weight: bold;
+        
+        nav a {
+            margin-left: 25px;
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
         }
+        
         .hero {
-            background: linear-gradient(rgba(38, 70, 83, 0.9), rgba(38, 70, 83, 0.9)), 
-                        url('https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
+            background-position: center;
             color: white;
             text-align: center;
-            padding: 6rem 1rem;
+            padding: 180px 20px 100px;
         }
-        [lang="ar"] .hero {
-            padding: 6rem 2rem;
+        
+        .cta-button {
+            background: var(--secondary);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 20px;
         }
-        .features {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            padding: 4rem 5%;
-            gap: 2rem;
+        
+        .section {
+            padding: 80px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
         }
-        [dir="rtl"] .features {
-            flex-direction: row-reverse;
+        
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
         }
-        .feature-card {
-            flex: 1;
-            min-width: 250px;
-            max-width: 350px;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        
+        .service-card {
+            border: 1px solid #eee;
+            border-radius: 8px;
+            padding: 30px;
+            transition: transform 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 50px 5%;
             text-align: center;
-            background: white;
-        }
-        .video-container {
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-            overflow: hidden;
-            margin-bottom: 1rem;
-        }
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-        .hidden {
-            display: none;
         }
     </style>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
-        <img src="prime-vision-logo.png" alt="Prime Vision 360" class="logo">
-        <button class="language-switcher" onclick="toggleLanguage()">العربية</button>
+        <img src="your-logo.png" alt="Prime Vision 360" class="logo">
+        <nav>
+            <a href="#services">Services</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </nav>
     </header>
 
-    <!-- English Content -->
-    <div id="en-content">
-        <section class="hero">
-            <h1>Immersive 360° Virtual Experiences</h1>
-            <p>Premium virtual tours for businesses worldwide</p>
-            <a href="#contact" class="cta-button">Get Your Free Demo</a>
-        </section>
+    <section class="hero">
+        <h1>Immersive 360° Virtual Experiences</h1>
+        <p>High-quality virtual tours for real estate, businesses, and events</p>
+        <a href="#contact" class="cta-button">Get Your Free Quote</a>
+    </section>
 
-        <section class="features">
-            <!-- Feature cards... -->
-        </section>
-
-        <section class="samples">
-            <h2>Virtual Tour Samples</h2>
-            <div class="video-container">
-                <!-- YouTube Embed -->
-                <iframe src="https://www.youtube.com/embed/3q5QOHd0W7U?rel=0" 
-                        title="Sample Tour" 
-                        allowfullscreen></iframe>
+    <section id="services" class="section">
+        <h2>Our Services</h2>
+        <div class="services">
+            <div class="service-card">
+                <h3>Virtual Tours</h3>
+                <p>Interactive 360° walkthroughs that showcase your property or business.</p>
             </div>
-        </section>
-    </div>
-
-    <!-- Arabic Content (Fixed) -->
-    <div id="ar-content" class="hidden" lang="ar" dir="rtl">
-        <section class="hero">
-            <h1>جولات افتراضية غامرة بزاوية 360°</h1>
-            <p>جولات افتراضية عالية الجودة للشركات</p>
-            <a href="#contact" class="cta-button">احصل على عرض مجاني</a>
-        </section>
-
-        <section class="features">
-            <!-- Arabic feature cards... -->
-        </section>
-
-        <section class="samples">
-            <h2>نماذج الجولات</h2>
-            <div class="video-container">
-                <!-- Same video embed works for both languages -->
-                <iframe src="https://www.youtube.com/embed/3q5QOHd0W7U?rel=0" 
-                        title="نموذج جولة" 
-                        allowfullscreen></iframe>
+            <div class="service-card">
+                <h3>Matterport Scans</h3>
+                <p>High-resolution 3D scans with accurate measurements.</p>
             </div>
-        </section>
-    </div>
+            <div class="service-card">
+                <h3>Aerial Photography</h3>
+                <p>Stunning drone footage to highlight your property.</p>
+            </div>
+        </div>
+    </section>
 
-    <script>
-        function toggleLanguage() {
-            const enContent = document.getElementById('en-content');
-            const arContent = document.getElementById('ar-content');
-            const button = document.querySelector('.language-switcher');
-            
-            if (enContent.classList.contains('hidden')) {
-                // Switch to English
-                enContent.classList.remove('hidden');
-                arContent.classList.add('hidden');
-                button.textContent = 'العربية';
-                document.documentElement.lang = 'en';
-                document.documentElement.dir = 'ltr';
-            } else {
-                // Switch to Arabic
-                enContent.classList.add('hidden');
-                arContent.classList.remove('hidden');
-                button.textContent = 'English';
-                document.documentElement.lang = 'ar';
-                document.documentElement.dir = 'rtl';
-            }
-        }
-    </script>
+    <section id="portfolio" class="section" style="background: var(--light);">
+        <h2>Our Work</h2>
+        <!-- Portfolio items would go here -->
+        <p>Sample virtual tours will be displayed here</p>
+    </section>
+
+    <section id="contact" class="section">
+        <h2>Contact Us</h2>
+        <form style="max-width: 500px; margin: 0 auto;">
+            <input type="text" placeholder="Your Name" style="width: 100%; padding: 10px; margin: 10px 0;">
+            <input type="email" placeholder="Email" style="width: 100%; padding: 10px; margin: 10px 0;">
+            <textarea placeholder="Message" style="width: 100%; padding: 10px; margin: 10px 0; height: 150px;"></textarea>
+            <button type="submit" class="cta-button" style="border: none; cursor: pointer;">Send Message</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Prime Vision 360. All rights reserved.</p>
+    </footer>
 </body>
 </html>
